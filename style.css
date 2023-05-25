@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --body-bg: #121214;
+    --font-primary-color: #ffffff;
+
+    font-size: 62.5%;
+    font-family: 'Hepta Slab', serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 1.6rem;
+
+    background: var(--body-bg);
+}
+
+#app {
+    width: 90%;
+    margin: 14rem auto 4.8rem;
+
+    color: var(--font-primary-color);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+header {
+    position: sticky;
+    top: 4rem;
+    height: fit-content;
+}
+
+header h1 {
+    width: 50%;
+    font-size: 4.8rem;
+    font-weight: 400;
+
+    margin-bottom: 3.2rem;
+}
+
+.img-container {
+    width: 100%;
+
+    columns: 3;
+    column-gap: 3.2rem;
+    transition: all .3s;
+}
+
+.img-container:has(.img-wrapper:hover) .img-wrapper:not(:hover) {
+    filter: grayscale(100);
+}
+
+.img-wrapper {
+    margin-bottom: 3.2rem;
+    border-radius: .4rem;
+    overflow: hidden;
+
+    position: relative;
+    cursor: pointer;
+}
+
+.img {
+    width: 100%;
+    display: block;
+}
+
+.img-wrapper h2 {
+    display: none;
+}
+
+.img-wrapper:hover h2 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    width: 100%;
+    height: 7.3rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    font-size: 2rem;
+    font-weight: 400;
+
+    padding-left: 2.4rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+    animation: fromBottom .4s backwards;
+}
+
+@keyframes fromBottom {
+    from {
+        transform: translateY(100%);
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        font-size: 50%;
+    }
+
+    #app {
+        flex-direction: column;
+        margin-top: 10rem;
+    }
+
+    header {
+        margin-bottom: 3.2rem;
+        position: static;
+    }
+}
+
+@media (max-width: 600px) {
+    #app {
+        margin-top: 5rem;
+    }
+
+    header h1 {
+        font-size: 3.6rem;
+    }
+    
+    .img-container {
+        column-count: 2;
+    }
+}
