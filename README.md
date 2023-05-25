@@ -1,4 +1,4 @@
-<h1 align="center"> Gallery with Hover effect</h1>
+<h1 align="center"> Gallery with hover effect</h1>
 
 ![preview](./.github/preview.png)
 
